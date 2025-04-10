@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] | Senior Database Administrator</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --bg: #f9f9f9;
+            --text: #333;
+            --card-bg: white;
+        }
+        
+        [data-theme="dark"] {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --light: #2c3e50;
+            --dark: #ecf0f1;
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card-bg: #1e1e1e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+        
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category, .achievement, .certification, .project {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover, .achievement:hover, .certification:hover, .project:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .achievement h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .tool-tag {
+            background: var(--light);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌓 Toggle Theme</button>
+    
+    <header>
+        <div class="container">
+            <h1>[Your Name]</h1>
+            <p>Senior Database Administrator | SQL Server Specialist | Performance Tuning Expert</p>
+            <div class="contact-info">
+                <a href="[Your LinkedIn URL]" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="[Your GitHub URL]" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="mailto:your.email@example.com">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                    </svg>
+                    your.email@example.com
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="summary">
+            <h2>Professional Summary</h2>
+            <p>Experienced <strong>Database Administrator (DBA)</strong> with expertise in <strong>SQL Server, Azure SQL, Performance Tuning, High Availability, and Automation</strong>. Proven track record in optimizing large-scale databases, reducing query execution time, and implementing cost-effective solutions. Passionate about <strong>troubleshooting complex database issues, automation, and cloud migration</strong>.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Core Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Database Administration</h3>
+                    <ul>
+                        <li>SQL Server (2012-2022), Azure SQL DB, PostgreSQL, MySQL</li>
+                        <li>Installation, configuration, patching, and upgrades</li>
+                        <li>Backup & recovery strategies (Point-in-Time Recovery, Log Shipping)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Performance Tuning & Optimization</h3>
+                    <ul>
+                        <li>Query optimization (Execution Plans, Index Tuning Advisor)</li>
+                        <li><strong>Parallelism & Cost Threshold adjustments</strong></li>
+                        <li>Wait Statistics & Deadlock analysis</li>
+                        <li>In-Memory OLTP & Columnstore Indexes</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>High Availability & Disaster Recovery</h3>
+                    <ul>
+                        <li>Always On Availability Groups, Failover Clustering</li>
+                        <li>Database Mirroring, Log Shipping, Replication</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Hybrid Environments</h3>
+                    <ul>
+                        <li>Azure SQL Managed Instance, AWS RDS</li>
+                        <li>Automation with PowerShell, Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Monitoring & Alerting</h3>
+                    <ul>
+                        <li>Custom <strong>Power BI/Grafana dashboards</strong> for DB metrics</li>
+                        <li>Extended Events, SQL Profiler, DMVs</li>
+                        <li>Alerts for long-running queries, deadlocks, and storage issues</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Security & Compliance</h3>
+                    <ul>
+                        <li>TDE (Transparent Data Encryption), Row-Level Security</li>
+                        <li>Auditing (SQL Server Audit, GDPR compliance)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Key Achievements</h2>
+            <div class="achievement">
+                <h3>🔹 Performance Optimization Project</h3>
+                <ul>
+                    <li><strong>Reduced query execution time by 70%</strong> by fine-tuning parallelism settings and optimizing indexes.</li>
+                    <li>Implemented <strong>Query Store</strong> to track and fix performance regressions.</li>
+                </ul>
+            </div>
+            <div class="achievement">
+                <h3>🔹 High Availability Implementation</h3>
+                <ul>
+                    <li>Migrated critical databases to <strong>Always On Availability Groups</strong>, reducing downtime by <strong>99.9%</strong>.</li>
+                </ul>
+            </div>
+            <div class="achievement">
+                <h3>🔹 Cloud Migration & Cost Optimization</h3>
+                <ul>
+                    <li>Successfully migrated <strong>on-prem SQL Server to Azure SQL</strong>, reducing licensing costs by <strong>40%</strong>.</li>
+                    <li>Implemented <strong>auto-scaling policies</strong> to optimize cloud spending.</li>
+                </ul>
+            </div>
+            <div class="achievement">
+                <h3>🔹 Advanced Monitoring & Dashboards</h3>
+                <ul>
+                    <li>Built a <strong>real-time monitoring dashboard (Grafana/Power BI)</strong> tracking:
+                        <ul>
+                            <li>Wait Types, Blocking Sessions, Deadlocks</li>
+                            <li>Query Performance, CPU/Memory Pressure</li>
+                            <li>Storage Growth Trends</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Project Gallery</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="https://via.placeholder.com/400x200?text=DB+Performance+Dashboard" alt="DB Performance Dashboard">
+                    <h3>SQL Performance Dashboard</h3>
+                    <p>Interactive Power BI dashboard tracking query performance, wait stats, and resource utilization across 50+ databases.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/400x200?text=Automated+Backup+System" alt="Automated Backup System">
+                    <h3>Automated Backup System</h3>
+                    <p>PowerShell solution for automated SQL Server backups with cloud upload and retention policy management.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Code</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/400x200?text=Cloud+Migration+Toolkit" alt="Cloud Migration Toolkit">
+                    <h3>Cloud Migration Toolkit</h3>
+                    <p>Collection of scripts and documentation for seamless migration from on-prem SQL Server to Azure SQL.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Guide</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools">
+            <h2>Tools & Technologies</h2>
+            <div class="tools">
+                <span class="tool-tag">SQL Server</span>
+                <span class="tool-tag">Azure SQL</span>
+                <span class="tool-tag">PostgreSQL</span>
+                <span class="tool-tag">MySQL</span>
+                <span class="tool-tag">Azure</span>
+                <span class="tool-tag">AWS RDS</span>
+                <span class="tool-tag">Grafana</span>
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">PowerShell</span>
+                <span class="tool-tag">Python</span>
+                <span class="tool-tag">Docker</span>
+                <span class="tool-tag">Kubernetes</span>
+                <span class="tool-tag">Terraform</span>
+                <span class="tool-tag">Azure DevOps</span>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <div class="certification">
+                    <h3>Microsoft Certified: Azure Database Administrator Associate</h3>
+                </div>
+                <div class="certification">
+                    <h3>AWS Certified Database – Specialty</h3>
+                </div>
+                <div class="certification">
+                    <h3>MCSA: SQL Server 2016/2019 Database Administration</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> [Your Name]. All rights reserved.</p>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme or preferred scheme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌓 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
