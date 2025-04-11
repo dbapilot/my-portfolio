@@ -997,6 +997,40 @@
                 flex: 0 0 calc(100% - 2rem);
             }
         }
+         // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            
+            // Animate the toggle button
+            gsap.to(themeToggle, {
+                scale: 0.9,
+                duration: 0.2,
+                yoyo: true,
+                repeat: 1,
+                ease: "power1.inOut",
+                onComplete: () => {
+                    if (currentTheme === 'dark') {
+                        document.body.removeAttribute('data-theme');
+                        icon.classList.replace('fa-sun', 'fa-moon');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.setAttribute('data-theme', 'dark');
+                        icon.classList.replace('fa-moon', 'fa-sun');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                    
+                    // Reinitialize both particles and 3D scene
+                    cleanup3DScene();
+                    initParticles();
+                    init3DScene();
+                }
+            });
+        });
+        
+        // Initialize effects when page loads
+        window.addEventListener('load', () => {
+            initParticles();
+            init3DScene();
     </style>
 </head>
 <body>
